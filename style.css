@@ -1,0 +1,98 @@
+:root {
+  --accent: #ffda22;
+}
+
+html,
+* {
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Times New Roman", Times, serif;
+}
+
+body {
+  margin: 0;
+  background-color: #fff8eb;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
+p,
+input {
+  font-size: 20px;
+  margin: 0;
+}
+
+a {
+	color: #2660A4;
+}
+
+#topnav {
+  width: 100%;
+  padding: 8px 32px;
+  box-sizing: border-box;
+  background-color: var(--accent);
+}
+
+#content {
+  display: flex;
+  padding: 64px;
+  justify-content: center;
+  align-items: center;
+}
+
+#content #main {
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+#content #main #record {
+  text-align: center;
+}
+
+#content #main #question {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+	gap: 8px;
+}
+
+#content #main #question #word {
+  font-size: 24px;
+}
+
+#content #main #question #part {
+  font-size: 16px;
+  color: gray;
+}
+
+#content #main #question #stage {
+  font-size: 16px;
+	margin-left: auto;
+  color: gray;
+}
+
+#content #main #input {
+  padding: 4px 8px;
+}
+
+#footer {
+  width: 100%;
+  padding: 8px 32px;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  background-color: var(--accent);
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+
+#footer p {
+  font-size: 16px;
+}
