@@ -1,0 +1,58 @@
+#content {
+  display: flex;
+  flex-direction: column;
+}
+
+#word-list-table {
+  width: 75%;
+  font-size: 20px;
+}
+
+#word-list-table .word-row {
+  transition: 20ms;
+}
+
+#word-list-table .word-row:hover {
+  background-color: var(--highlight);
+}
+
+#word-list-table tr th {
+  border-bottom: 1px solid black;
+}
+#word-list-table td,
+#word-list-table th {
+  text-align: left;
+  border-bottom: 1px solid #cfcfcf;
+
+  padding: 4px 32px;
+}
+
+#word-list-table .stage,
+#word-list-table .number {
+  text-align: right;
+}
+
+p {
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+  #word-list-table {
+    width: 100%;
+    font-size: 16px;
+  }
+  #content {
+    padding: 0;
+    overflow: scroll;
+    padding-bottom: 120px;
+  }
+
+  #word-list-table .word-row:active {
+    background-color: var(--highlight);
+  }
+
+  #word-list-table td,
+  #word-list-table th {
+    padding: 4px 4px;
+  }
+}

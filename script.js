@@ -10,6 +10,8 @@ var question, answer;
 
 var last_incorrect = false;
 
+var incorrect = {};
+
 var game = { correct: 0, incorrect: 0, total: 0 };
 
 function newQuestion() {
@@ -21,7 +23,7 @@ function newQuestion() {
   console.log(`NEW QUESTION: ${question} : ${answer} `);
 
   document.querySelector("#word").innerHTML = question;
-  if(word.part) document.querySelector("#part").innerHTML = '('+word.part+")";
+  if (word.part) document.querySelector("#part").innerHTML = "(" + word.part + ")";
 
   document.querySelector("#stage").innerHTML = "Stage " + word.stage;
 }
@@ -52,7 +54,12 @@ function submit(input) {
     last_incorrect = true;
     game.incorrect++;
     game.total++;
-    // incorrect.push();
+    if (!incorrect.question) {
+      incorrect[question] = 1;
+    } else {
+      incorrect[question]++;
+    }
+    console.log(incorrect);
   }
 
   document.querySelector("#record").innerHTML = `${game.correct} / ${game.total}&nbsp;&nbsp;(${Math.floor(

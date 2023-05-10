@@ -1,5 +1,7 @@
 :root {
   --accent: #ffda22;
+  --background: #fff8eb;
+  --highlight: #fef4c3;
 }
 
 html,
@@ -8,15 +10,19 @@ html,
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: "Times New Roman", Times, serif;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 body {
   margin: 0;
-  background-color: #fff8eb;
+  background-color: var(--background);
 }
 
 #app {
   display: flex;
+  overflow: hidden;
+
   flex-direction: column;
 }
 
@@ -27,7 +33,12 @@ input {
 }
 
 a {
-	color: #2660A4;
+  color: #2660a4;
+}
+
+h1 {
+  font-size: 28px;
+  margin: 16px 0;
 }
 
 #topnav {
@@ -35,6 +46,22 @@ a {
   padding: 8px 32px;
   box-sizing: border-box;
   background-color: var(--accent);
+}
+
+#topnav div {
+  display: flex;
+  padding-bottom: 8px;
+  flex-direction: row;
+  gap: 16px;
+}
+
+#topnav div a {
+  text-decoration: none;
+  color: black;
+}
+
+#topnav div a:hover {
+  text-decoration: underline;
 }
 
 #content {
@@ -51,6 +78,16 @@ a {
   width: 25%;
 }
 
+@media only screen and (max-width: 600px) {
+  #content #main {
+    width: 100%;
+  }
+  #app #footer {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
 #content #main #record {
   text-align: center;
 }
@@ -59,7 +96,7 @@ a {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-	gap: 8px;
+  gap: 8px;
 }
 
 #content #main #question #word {
@@ -73,7 +110,7 @@ a {
 
 #content #main #question #stage {
   font-size: 16px;
-	margin-left: auto;
+  margin-left: auto;
   color: gray;
 }
 

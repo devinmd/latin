@@ -13,5 +13,3 @@ with open("words.json", "r", encoding='utf-8') as file:
       d['english'] = [d['english']]
   for i in arr:
     print(i)
-  
-
