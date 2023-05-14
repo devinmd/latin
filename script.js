@@ -1,9 +1,3 @@
-function init() {
-  newQuestion();
-}
-
-init();
-
 var word;
 
 var question, answer;
@@ -14,16 +8,84 @@ var incorrect = {};
 
 var game = { correct: 0, incorrect: 0, total: 0 };
 
-function newQuestion() {
-  word = words[Math.floor(Math.random() * words.length)];
+var abbreviations = {
+  preposition: "prep.",
+  verb: "verb",
+  noun: "noun",
+  adverb: "adv.",
+  adjective: "adj.",
+  pronoun: "pro.",
+  conjunction: "conj.",
+  interjection: "inter.",
+  numeral: "num.",
 
+  masculine: "m.",
+  feminine: "f.",
+  neuter: "n.",
+  both: "m. f.",
+};
+
+var stages = [];
+
+function init() {
+  applySettings();
+}
+
+var valid_words = [];
+
+init();
+
+function newQuestion() {
+  word = valid_words[Math.floor(Math.random() * valid_words.length)];
+  showQuestion();
+}
+
+function applySettings() {
+  document.querySelector("#settings").style.display = "none";
+
+  game = { correct: 0, incorrect: 0, total: 0 };
+  last_incorrect = false;
+  stages = [];
+  valid_words = [];
+
+  let num = document.querySelector("#stage-input").value;
+  if (num > 20) {
+    num = 20;
+    document.querySelector("#stage-input").value = 20;
+  }
+  if (document.querySelector("#settings-select").value == "up-to") {
+    // up to stage X
+    for (let i = 1; i <= num; i++) {
+      stages.push(i);
+    }
+  } else {
+    // in stage X
+    stages = [num];
+  }
+  console.log(stages);
+
+  for (i in words) {
+    if (!stages.includes(parseInt(words[i].stage))) {
+      continue;
+    }
+    valid_words.push(words[i]);
+  }
+
+  document.querySelector("#record").innerHTML = `0 / 0&nbsp;&nbsp;(%)`;
+
+  newQuestion();
+}
+
+function showQuestion() {
   question = word.latin;
   answer = word.english;
 
   console.log(`NEW QUESTION: ${question} : ${answer} `);
 
   document.querySelector("#word").innerHTML = question;
-  if (word.part) document.querySelector("#part").innerHTML = "(" + word.part + ")";
+  if (word.part) document.querySelector("#part").innerHTML = `(${abbreviations[word.part]})`;
+  if (word.part && word.gender)
+    document.querySelector("#part").innerHTML = `(${abbreviations[word.gender]} ${abbreviations[word.part]})`;
 
   document.querySelector("#stage").innerHTML = "Stage " + word.stage;
 }
@@ -59,10 +121,17 @@ function submit(input) {
     } else {
       incorrect[question]++;
     }
-    console.log(incorrect);
   }
 
   document.querySelector("#record").innerHTML = `${game.correct} / ${game.total}&nbsp;&nbsp;(${Math.floor(
     (game.correct / game.total) * 100
   )}%)`;
+}
+
+function toggleSettings() {
+  if (document.querySelector("#settings").style.display == "none") {
+    document.querySelector("#settings").style.display = "flex";
+  } else {
+    document.querySelector("#settings").style.display = "none";
+  }
 }

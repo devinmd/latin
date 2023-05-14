@@ -3,23 +3,32 @@
 
 <head>
 	<meta charset="utf-8">
+
 	<meta name="viewport" content="width=device-width">
+
 	<title>Latin Vocabulary Trainer</title>
+
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
-	<link rel="icon" type="image/x-icon" href="favicon.png">
-</head>
+
+	<link rel="icon" type="image/x-icon" href="assets/icon.ico">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <body>
 
 	<div id="app">
 
 		<div id="topnav">
-      <h1>Latin Vocabulary Trainer</h1>
-      <div>
-        <a href="/">Home</a>
-        <a href="/words.html">Word List</a>
-      </div>
-    </div>
+			<img src="assets/icon1.png">
+			<h1>Latin Vocabulary Trainer</h1>
+			<div>
+				<a href="./">Vocabulary Trainer</a>
+				<a href="./words.html">Word List</a>
+			</div>
+		</div>
 
 		<div id="content">
 
@@ -33,12 +42,27 @@
 				</div>
 				<input type="text" id="input" placeholder="...">
 			</div>
+			<button onclick="toggleSettings()" style="margin-top: 64px;">Settings</button>
+			<div id="settings" style="display: none">
+				<div>
+					<select id="settings-select">
+						<option value="up-to">up to</option>
+						<option value="in">in</option>
+					</select>
+					<p>stage</p>
+					<input type="number" max="20" value="20" min="1" id="stage-input">
+				</div>
+
+
+				<button onclick="applySettings()">Apply</button>
+			</div>
+
 		</div>
 
-		<div id="footer">
-			<p>Source code: <a href="https://github.com/devinmd/latin">github.com/devinmd/latin</a></p>
-			<p>Word list from <a href="https://www.classicstuition.com/cambridge-latin-course-vocabulary-table/">classicstuition.com/cambridge-latin-course-vocabulary-table/</a></p>
 
+		<div id="footer">
+			<p>Source code: <a href="https://github.com/devinmd/latin" target="_blank">github.com/devinmd/latin</a></p>
+			<p>Words from <a href="https://www.classicstuition.com/cambridge-latin-course-vocabulary-table/" target="_blank">classicstuition.com/cambridge-latin-course-vocabulary-table/</a></p>
 		</div>
 
 	</div>

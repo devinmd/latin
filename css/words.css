@@ -13,16 +13,17 @@
 }
 
 #word-list-table .word-row:hover {
-  background-color: var(--highlight);
+  background-color: #161616;
 }
 
 #word-list-table tr th {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--background-l2);
 }
 #word-list-table td,
 #word-list-table th {
   text-align: left;
-  border-bottom: 1px solid #cfcfcf;
+  color: var(--text2);
+  border-bottom: 1px solid var(--background-l1);
 
   padding: 4px 32px;
 }
@@ -45,10 +46,6 @@ p {
     padding: 0;
     overflow: scroll;
     padding-bottom: 120px;
-  }
-
-  #word-list-table .word-row:active {
-    background-color: var(--highlight);
   }
 
   #word-list-table td,
