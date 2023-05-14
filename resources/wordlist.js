@@ -104,7 +104,7 @@ var words = [
   { latin: "coquit", english: ["cooks"], stage: "4" },
   { latin: "cur?", english: ["why?"], stage: "4", part: "adverb" },
   { latin: "e", english: ["from", "out of"], stage: "4" },
-  { latin: "ego", english: ["i"], stage: "4" },
+  { latin: "ego", english: ["i"], stage: "4" , part:'pronoun'},
   {
     latin: "eheu!",
     english: ["oh dear!", "oh no!", 'oh dear','oh no'],

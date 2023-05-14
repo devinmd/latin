@@ -1,19 +1,19 @@
 # latin vocabulary trainer
 
+open source latin vocabulary trainer using cambridge latin course vocabulary words
+
 ## to-do
 
-- get part of speech for all words
+- part of speech for all words
 - macrons on all words
 - verb & noun endings trainer
 - gender on all nouns
 
-<hr>
-
-## words
+## words & word format
 
 ### nouns
 
-gender: masculine, feminine, or neuter<br>
+gender: masculine, feminine, or neuter, or both masculine and feminine<br>
 case: all nouns are nominative<br>
 number: all nouns are singular
 
@@ -49,6 +49,15 @@ number: all verbs are singular
 
 ### adjectives (adj.)
 
+```json
+{
+  "latin": "magnus",
+  "english": ["big"],
+  "stage": "3",
+  "part": "adjective"
+}
+```
+
 ### interjections (inter.)
 
 latin word always ends in "!"
@@ -64,10 +73,46 @@ latin word always ends in "!"
 
 ### pronouns (pro.)
 
+```json
+{
+  "latin": "ego",
+  "english": ["i"],
+  "stage": "4",
+  "part": "pronoun"
+}
+```
+
 ### adverbs (adv.)
+
+```json
+{
+  "latin": "non",
+  "english": ["not"],
+  "stage": "3",
+  "part": "adverb"
+}
+```
 
 ### prepositions (prep.)
 
 ### conjunctions (conj.)
 
+```json
+{
+  "latin": "et",
+  "english": ["and"],
+  "stage": "3",
+  "part": "conjunction"
+}
+```
+
 ### numerals (num.)
+
+```json
+{
+  "latin": "unus",
+  "english": ["one"],
+  "stage": "12",
+  "part": "numeral"
+}
+```
